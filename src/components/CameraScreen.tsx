@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import ChatHeader from './ChatHeader'
 import MessageList from './MessageList'
 import CameraInput from './CameraInput'
