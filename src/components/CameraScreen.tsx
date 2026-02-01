@@ -9,14 +9,6 @@ interface CameraScreenProps {
 }
 
 const CameraScreen = ({ isVisible, onBack }: CameraScreenProps) => {
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      text: "Hello! You can take a photo and ask me questions about it!",
-      isUser: false,
-      timestamp: new Date()
-    }
-  ])
 
   // Handle escape key to go back
   useEffect(() => {
@@ -41,7 +33,7 @@ const CameraScreen = ({ isVisible, onBack }: CameraScreenProps) => {
       <div className="h-dvh flex flex-col">
         {/* Header with back button */}
         <div className="relative">
-          <ChatHeader />
+          <ChatHeader onMenuClick={() => {}} />
           <button
             onClick={onBack}
             className="absolute left-4 top-4 w-10 h-10 flex items-center justify-center bg-gray-800/80 rounded-full text-white hover:bg-gray-700/80 transition-all duration-200 backdrop-filter backdrop-blur-md"
@@ -66,7 +58,7 @@ const CameraScreen = ({ isVisible, onBack }: CameraScreenProps) => {
         {/* Messages area */}
         <div className="flex-1 overflow-hidden">
           <div className="h-full overflow-y-auto pb-24">
-            <MessageList messages={messages} />
+            <MessageList />
           </div>
         </div>
 
