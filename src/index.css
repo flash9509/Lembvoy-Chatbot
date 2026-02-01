@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* ===== THEME SYSTEM ===== */
+:root {
+  --chat-bg-color: #0b0b0b;
+  --chat-bg-image: url('./assets/backgrounds/lemvoy-dark.png');
+}
+
+/* Base chat background */
+.chat-background {
+  background-color: var(--chat-bg-color);
+  background-image: var(--chat-bg-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
