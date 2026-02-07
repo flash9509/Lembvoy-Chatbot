@@ -1,7 +1,8 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ChatHeader from './ChatHeader'
 import MessageList from './MessageList'
 import CameraInput from './CameraInput'
+import LemvoyLive from './LemvoyLive'
 
 interface CameraScreenProps {
   isVisible: boolean
@@ -9,6 +10,15 @@ interface CameraScreenProps {
 }
 
 const CameraScreen = ({ isVisible, onBack }: CameraScreenProps) => {
+  const [isLemvoyLiveOpen, setIsLemvoyLiveOpen] = useState(false)
+
+  const openLemvoyLive = () => {
+    setIsLemvoyLiveOpen(true)
+  }
+
+  const closeLemvoyLive = () => {
+    setIsLemvoyLiveOpen(false)
+  }
 
   // Handle escape key to go back
   useEffect(() => {
@@ -26,7 +36,7 @@ const CameraScreen = ({ isVisible, onBack }: CameraScreenProps) => {
 
   return (
     <div 
-      className={`fixed inset-0 z-50 bg-black/95 backdrop-blur-sm transition-transform duration-300 ease-in-out ${
+      className={`fixed inset-0 z-50 backdrop-blur-sm transition-transform duration-300 ease-in-out chat-background ${
         isVisible ? 'translate-x-0' : 'translate-x-full'
       }`}
     >
@@ -63,11 +73,17 @@ const CameraScreen = ({ isVisible, onBack }: CameraScreenProps) => {
         </div>
 
         {/* Camera Input */}
-        <CameraInput />
+        <CameraInput showLiveButton={true} onOpenLive={openLemvoyLive} />
 
         {/* Camera preview overlay (optional) */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
       </div>
+      
+      {/* Lemvoy Live Component */}
+      <LemvoyLive 
+        isVisible={isLemvoyLiveOpen} 
+        onBack={closeLemvoyLive} 
+      />
     </div>
   )
 }

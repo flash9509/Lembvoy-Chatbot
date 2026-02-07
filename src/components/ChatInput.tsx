@@ -172,10 +172,17 @@ const ChatInput: React.FC<ChatInputProps> = ({ onOpenCamera }) => {
         ">
               <div className="px-4 pt-3 pb-2 flex items-center justify-between text-xs text-gray-400/90 uppercase tracking-[0.12em]">
                 <span>Attach</span>
-                <span className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => {
+                    onOpenCamera?.()
+                    closeAttachmentMenu()
+                  }}
+                  className="flex items-center gap-1 hover:text-emerald-400/90 transition-colors duration-200 cursor-pointer"
+                >
                   <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400/80 animate-pulse" />
-                  <span>Quick Actions</span>
-                </span>
+                  <span>History</span>
+                </button>
               </div>
 
               <div className="px-4 pb-3 grid grid-cols-3 gap-3">
