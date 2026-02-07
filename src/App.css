@@ -40,3 +40,36 @@
 .read-the-docs {
   color: #888;
 }
+
+@keyframes attachmentMenuFloatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.95);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes attachmentMenuFloatOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.95);
+  }
+}
+
+.attachment-menu-float {
+  animation: attachmentMenuFloatIn 0.18s cubic-bezier(0.33,1,0.68,1.1) both;
+}
+.attachment-menu-float-leave {
+  animation: attachmentMenuFloatOut 0.14s cubic-bezier(0.33,1,0.68,1.1) both;
+}

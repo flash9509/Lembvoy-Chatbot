@@ -88,7 +88,7 @@ export default function ChatLayout() {
           <div className="flex-1 min-h-0 overflow-y-auto pb-24">
             <MessageList />
           </div>
-          <ChatInput />
+          <ChatInput onOpenCamera={openCameraScreen} />
         </div>
         
         {/* Swipe hint for mobile */}
